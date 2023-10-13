@@ -1,0 +1,230 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>入门StableDiffusion | Peanut🥜</title><meta name="author" content="Peanut🥜"><meta name="copyright" content="Peanut🥜"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="🥗开始学学Stable DiffusionChatGPT3.5 还没听说过什么是Stable Diffusion，现在只会顾左右而言他 参考的内容：  Stable Diffusion简介 - 知乎 (zhihu.com) Stable Diffusion - 维基百科，自由的百科全书 (wikipedia.org) https:&#x2F;&#x2F;www.bilibili.com&#x2F;read&#x2F;cv2215960">
+<meta property="og:type" content="article">
+<meta property="og:title" content="入门StableDiffusion">
+<meta property="og:url" content="http://example.com/2023/10/13/%E5%85%A5%E9%97%A8StableDiffusion/index.html">
+<meta property="og:site_name" content="Peanut🥜">
+<meta property="og:description" content="🥗开始学学Stable DiffusionChatGPT3.5 还没听说过什么是Stable Diffusion，现在只会顾左右而言他 参考的内容：  Stable Diffusion简介 - 知乎 (zhihu.com) Stable Diffusion - 维基百科，自由的百科全书 (wikipedia.org) https:&#x2F;&#x2F;www.bilibili.com&#x2F;read&#x2F;cv2215960">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2023/09/26/QeXmpklBydzADVU.jpg">
+<meta property="article:published_time" content="2023-10-13T06:54:56.000Z">
+<meta property="article:modified_time" content="2023-10-13T08:18:04.463Z">
+<meta property="article:author" content="Peanut🥜">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2023/09/26/QeXmpklBydzADVU.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2023/10/13/%E5%85%A5%E9%97%A8StableDiffusion/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9ac313637a947668318d00f2fa3033bd";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":220},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Peanut🥜","link":"链接: ","source":"来源: Peanut🥜","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '入门StableDiffusion',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-10-13 16:18:04'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css"><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://s2.loli.net/2023/09/26/l5HJYLxojqCrzGv.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">8</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://s2.loli.net/2023/09/26/QeXmpklBydzADVU.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Peanut🥜"><span class="site-name">Peanut🥜</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">入门StableDiffusion</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-10-13T06:54:56.000Z" title="发表于 2023-10-13 14:54:56">2023-10-13</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-10-13T08:18:04.463Z" title="更新于 2023-10-13 16:18:04">2023-10-13</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="入门StableDiffusion"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="🥗开始学学Stable-Diffusion"><a href="#🥗开始学学Stable-Diffusion" class="headerlink" title="🥗开始学学Stable Diffusion"></a>🥗开始学学Stable Diffusion</h1><p>ChatGPT3.5 还没听说过什么是Stable Diffusion，现在只会顾左右而言他</p>
+<p>参考的内容：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/620714629">Stable Diffusion简介 - 知乎 (zhihu.com)</a></li>
+<li><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Stable_Diffusion">Stable Diffusion - 维基百科，自由的百科全书 (wikipedia.org)</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv22159609/">https://www.bilibili.com/read/cv22159609/</a></li>
+</ul>
+<h2 id="🍣什么是Stable-Diffusion？"><a href="#🍣什么是Stable-Diffusion？" class="headerlink" title="🍣什么是Stable Diffusion？"></a>🍣什么是Stable Diffusion？</h2><blockquote>
+<p><strong>Stable Diffusion</strong>是2022年发布的<a href="https://link.zhihu.com/?target=https://zh.wikipedia.org/wiki/%E6%B7%B1%E5%BA%A6%E5%AD%B8%E7%BF%92">深度学习</a><a href="https://link.zhihu.com/?target=https://zh.wikipedia.org/zh-cn/%E6%96%87%E6%9C%AC%E5%88%B0%E5%9B%BE%E5%83%8F%E7%94%9F%E6%88%90%E6%A8%A1%E5%9E%8B">文本到图像生成模型</a>，它主要用于根据文本的描述产生详细图像，尽管它也可以应用于其他任务，如<a href="https://link.zhihu.com/?target=https://zh.wikipedia.org/wiki/%E5%9B%BE%E5%83%8F%E4%BF%AE%E5%A4%8D">内补绘制</a>、外补绘制，以及在<a href="https://link.zhihu.com/?target=https://zh.wikipedia.org/w/index.php?title=%E6%8F%90%E7%A4%BA%E8%A9%9E&action=edit&redlink=1">提示词</a>（<a href="https://link.zhihu.com/?target=https://en.wikipedia.org/wiki/Prompt_engineering">英语</a>）指导下产生图生图的翻译。</p>
+<p>它是一种<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/w/index.php?title=Latent_variable_model&action=edit&redlink=1">潜在变量模型</a>的<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B">扩散模型</a>，由<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%85%95%E5%B0%BC%E9%BB%91%E5%A4%A7%E5%AD%A6">慕尼黑大学</a>的CompVis研究团体开发的各种生成性<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E4%BA%BA%E5%B7%A5%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C">人工神经网络</a>之一。[<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Stable_Diffusion#cite_note-paper-3">3]</a>它是由<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%88%9D%E5%88%9B%E5%85%AC%E5%8F%B8">初创公司</a>StabilityAI、CompVis与Runway合作开发，并得到EleutherAI和<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/w/index.php?title=LAION&action=edit&redlink=1">LAION</a>（<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/LAION">英语</a>）的支持。</p>
+<p>Stable Diffusion的代码和模型权重已公开发布，可以在大多数配备有适度<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%9C%96%E5%BD%A2%E8%99%95%E7%90%86%E5%99%A8">GPU</a>的电脑硬件上运行。而以前的专有文生图模型（如<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/DALL-E">DALL-E</a>和<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Midjourney">Midjourney</a>）只能通过<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E9%9B%B2%E7%AB%AF%E9%81%8B%E7%AE%97">云计算</a>服务访问。</p>
+<p>来自wiki</p>
+</blockquote>
+<p>简单来说，Stable Diffusion 是一个用于文本生成图像的深度学习模型，通过使用者给出的描述词，去生成图片。</p>
+<h2 id="🧁接触到的概念"><a href="#🧁接触到的概念" class="headerlink" title="🧁接触到的概念"></a>🧁接触到的概念</h2><h3 id="one-shot"><a href="#one-shot" class="headerlink" title="one shot"></a>one shot</h3><p>使用单个图像来生成新图像。模型通过尽可能少的示例进行学习，学到目标类别或风格的特征，然后生成具有类似特征的新图像。</p>
+<blockquote>
+<p>这个概念在机器学习和人工智能的领域中被广泛应用，特别是在生成对抗网络（GANs）和变分自编码器（VAEs）等生成模型中。</p>
+<p>“One Shot” 学习的概念起源于机器学习领域，尤其是元学习（meta-learning）的研究。元学习是一种关注模型如何能够在面对新任务时快速学习的研究方向。在元学习中，研究人员探讨了使用少量示例（甚至只有一个示例）来进行学习的方法，这就是”One Shot”学习的基础。</p>
+<p>具体来说，在元学习的背景下，研究人员研究了如何通过学习从一些少量的、具体任务中获得知识，然后将这种知识迁移到面对新任务时的学习中。这种方法旨在使机器学习模型更具通用性，能够从非常有限的数据中学习，并且在面对新任务时也能够表现良好。</p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">Peanut🥜</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2023/10/13/%E5%85%A5%E9%97%A8StableDiffusion/">http://example.com/2023/10/13/%E5%85%A5%E9%97%A8StableDiffusion/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Peanut🥜</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://s2.loli.net/2023/09/26/QeXmpklBydzADVU.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/img/alipay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2023/10/13/%E6%97%8B%E8%BD%AC%E7%AD%89%E5%8F%98%E5%8D%B7%E7%A7%AF%E8%AE%B2%E5%BA%A7%E8%A7%82%E5%90%8E%E6%84%9F/" title="旋转等变卷积讲座观后感"><img class="cover" src="https://s2.loli.net/2023/09/26/wCWtNVlY24n7iUF.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">旋转等变卷积讲座观后感</div></div></a></div></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://s2.loli.net/2023/09/26/l5HJYLxojqCrzGv.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Peanut🥜</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">8</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/peanutbo"><i class="fab fa-github"></i><span>去串个门🛸</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/peanutbo" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:soyorin520@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来看我的博客喵~</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%F0%9F%A5%97%E5%BC%80%E5%A7%8B%E5%AD%A6%E5%AD%A6Stable-Diffusion"><span class="toc-number">1.</span> <span class="toc-text">🥗开始学学Stable Diffusion</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%8D%A3%E4%BB%80%E4%B9%88%E6%98%AFStable-Diffusion%EF%BC%9F"><span class="toc-number">1.1.</span> <span class="toc-text">🍣什么是Stable Diffusion？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%A7%81%E6%8E%A5%E8%A7%A6%E5%88%B0%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-number">1.2.</span> <span class="toc-text">🧁接触到的概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#one-shot"><span class="toc-number">1.2.1.</span> <span class="toc-text">one shot</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/10/13/%E5%85%A5%E9%97%A8StableDiffusion/" title="入门StableDiffusion"><img src="https://s2.loli.net/2023/09/26/QeXmpklBydzADVU.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="入门StableDiffusion"/></a><div class="content"><a class="title" href="/2023/10/13/%E5%85%A5%E9%97%A8StableDiffusion/" title="入门StableDiffusion">入门StableDiffusion</a><time datetime="2023-10-13T06:54:56.000Z" title="发表于 2023-10-13 14:54:56">2023-10-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/13/%E6%97%8B%E8%BD%AC%E7%AD%89%E5%8F%98%E5%8D%B7%E7%A7%AF%E8%AE%B2%E5%BA%A7%E8%A7%82%E5%90%8E%E6%84%9F/" title="旋转等变卷积讲座观后感"><img src="https://s2.loli.net/2023/09/26/wCWtNVlY24n7iUF.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="旋转等变卷积讲座观后感"/></a><div class="content"><a class="title" href="/2023/10/13/%E6%97%8B%E8%BD%AC%E7%AD%89%E5%8F%98%E5%8D%B7%E7%A7%AF%E8%AE%B2%E5%BA%A7%E8%A7%82%E5%90%8E%E6%84%9F/" title="旋转等变卷积讲座观后感">旋转等变卷积讲座观后感</a><time datetime="2023-10-13T06:54:56.000Z" title="发表于 2023-10-13 14:54:56">2023-10-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/11/%E8%AE%A4%E8%AF%86AIGC/" title="认识AIGC"><img src="https://s2.loli.net/2023/09/26/QeXmpklBydzADVU.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="认识AIGC"/></a><div class="content"><a class="title" href="/2023/10/11/%E8%AE%A4%E8%AF%86AIGC/" title="认识AIGC">认识AIGC</a><time datetime="2023-10-11T01:34:43.000Z" title="发表于 2023-10-11 09:34:43">2023-10-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/09/29/%E6%88%91%E8%A6%81%E6%88%90%E4%B8%BApython%E9%AB%98%E6%89%8B!/" title="我要成为python高手!"><img src="https://s2.loli.net/2023/10/03/Ip5SmUWxDL4TB1H.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="我要成为python高手!"/></a><div class="content"><a class="title" href="/2023/09/29/%E6%88%91%E8%A6%81%E6%88%90%E4%B8%BApython%E9%AB%98%E6%89%8B!/" title="我要成为python高手!">我要成为python高手!</a><time datetime="2023-09-29T03:38:42.000Z" title="发表于 2023-09-29 11:38:42">2023-09-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/09/26/test2/" title="test2"><img src="https://s2.loli.net/2023/09/26/DASpsKnHBbWcPuV.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="test2"/></a><div class="content"><a class="title" href="/2023/09/26/test2/" title="test2">test2</a><time datetime="2023-09-26T05:05:27.000Z" title="发表于 2023-09-26 13:05:27">2023-09-26</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Peanut🥜</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>function loadDisqus () {
+  const disqus_config = function () {
+    this.page.url = 'http://example.com/2023/10/13/%E5%85%A5%E9%97%A8StableDiffusion/'
+    this.page.identifier = '/2023/10/13/%E5%85%A5%E9%97%A8StableDiffusion/'
+    this.page.title = '入门StableDiffusion'
+  }
+
+  const disqusReset = () => {
+    DISQUS.reset({
+      reload: true,
+      config: disqus_config
+    })
+  }
+
+  btf.addModeChange('disqus', disqusReset)
+
+  if (window.DISQUS) disqusReset()
+  else {
+    (function() { 
+      var d = document, s = d.createElement('script');
+      s.src = 'https://peanutbo.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  }
+}
+
+if ('Disqus' === 'Disqus' || !true) {
+  if (true) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+  else loadDisqus()
+} else {
+  function loadOtherComment () {
+    loadDisqus()
+  }
+}
+</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
