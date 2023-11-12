@@ -1,0 +1,293 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>生成网络笔记 | Peanut🥜</title><meta name="author" content="Peanut🥜"><meta name="copyright" content="Peanut🥜"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="参考资料： 参考资料： 目前考资料： What are Diffusion Models? | Lil’Log (lilianweng.github.io) https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1s44y1f7VM&#x2F; https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1p24y1X7Ah&#x2F; 变分自编码器（一）：原来是这么一回事 - 科学空间|Scien">
+<meta property="og:type" content="article">
+<meta property="og:title" content="生成网络笔记">
+<meta property="og:url" content="http://example.com/2023/11/08/%E7%94%9F%E6%88%90%E7%BD%91%E7%BB%9C%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Peanut🥜">
+<meta property="og:description" content="参考资料： 参考资料： 目前考资料： What are Diffusion Models? | Lil’Log (lilianweng.github.io) https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1s44y1f7VM&#x2F; https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1p24y1X7Ah&#x2F; 变分自编码器（一）：原来是这么一回事 - 科学空间|Scien">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2023/09/26/cUzPvnD9ZHbo1QV.png">
+<meta property="article:published_time" content="2023-11-08T06:10:05.000Z">
+<meta property="article:modified_time" content="2023-11-12T14:49:19.461Z">
+<meta property="article:author" content="Peanut🥜">
+<meta property="article:tag" content="GAN,VAE">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2023/09/26/cUzPvnD9ZHbo1QV.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2023/11/08/%E7%94%9F%E6%88%90%E7%BD%91%E7%BB%9C%E7%AC%94%E8%AE%B0/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9ac313637a947668318d00f2fa3033bd";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":220},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Peanut🥜","link":"链接: ","source":"来源: Peanut🥜","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '生成网络笔记',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-11-12 22:49:19'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css"><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://s2.loli.net/2023/09/26/l5HJYLxojqCrzGv.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">14</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://s2.loli.net/2023/09/26/cUzPvnD9ZHbo1QV.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Peanut🥜"><span class="site-name">Peanut🥜</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">生成网络笔记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-11-08T06:10:05.000Z" title="发表于 2023-11-08 14:10:05">2023-11-08</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-11-12T14:49:19.461Z" title="更新于 2023-11-12 22:49:19">2023-11-12</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="生成网络笔记"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>参考资料：</p>
+<p>参考资料：</p>
+<p>目前考资料：</p>
+<p><a target="_blank" rel="noopener" href="https://lilianweng.github.io/posts/2021-07-11-diffusion-models/">What are Diffusion Models? | Lil’Log (lilianweng.github.io)</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1s44y1f7VM/">https://www.bilibili.com/video/BV1s44y1f7VM/</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1p24y1X7Ah/">https://www.bilibili.com/video/BV1p24y1X7Ah/</a></p>
+<p><a target="_blank" rel="noopener" href="https://spaces.ac.cn/archives/5253">变分自编码器（一）：原来是这么一回事 - 科学空间|Scientific Spaces</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42437114/article/details/125090943">https://blog.csdn.net/weixin_42437114/article/details/125090943</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_61878383/article/details/122462196?ops_request_misc=%7B%22request_id%22:%22169978543816800186592787%22,%22scm%22:%2220140713.130102334..%22%7D&request_id=169978543816800186592787&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-122462196-null-null.142%5Ev96%5Econtrol&utm_term=GAN&spm=1018.2226.3001.4187">GAN（生成对抗网络）的系统全面介绍</a></p>
+<p><a target="_blank" rel="noopener" href="https://easyaitech.medium.com/%E4%B8%80%E6%96%87%E7%9C%8B%E6%87%82%E7%94%9F%E6%88%90%E5%AF%B9%E6%8A%97%E7%BD%91%E7%BB%9C-gans-%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86-10%E7%A7%8D%E5%85%B8%E5%9E%8B%E7%AE%97%E6%B3%95-13%E7%A7%8D%E5%BA%94%E7%94%A8-a8a37a554e2d">一文看懂生成对抗网络 — GANs？（基本原理+10种典型算法+13种应用） | by easyAI-人工智能知识库 | Medium</a></p>
+<h1 id="生成网络简史"><a href="#生成网络简史" class="headerlink" title="生成网络简史"></a>生成网络简史</h1><p>需要预备一些无监督学习的基础知识：</p>
+<p>聚类，降维（例如 PC），特征学习，密度估计</p>
+<p><strong>生成模型：</strong>给定训练集，产生与训练集同分布的新样本。希望学到一个模型 p<del>model</del>(x)，其与训练样本的分布 p<del>data</del>(x) 相近。</p>
+<p>🍀：无监督学习的一个核心问题——密度估计问题</p>
+<p>生成网络的分类：</p>
+<ul>
+<li>显式密度估计<ul>
+<li>密度函数可解<ul>
+<li>NADE</li>
+<li>MADE</li>
+<li>PixelRNN&#x2F;PixelCNN</li>
+</ul>
+</li>
+<li>密度函数可以近似<ul>
+<li>变分自编码器 VAE</li>
+<li>马尔科夫链</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>隐式密度估计<ul>
+<li>GAN</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://s2.loli.net/2023/11/08/PCBbgsWtvEZ1LQu.png"></p>
+<h1 id="GAN"><a href="#GAN" class="headerlink" title="GAN"></a>GAN</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Generative Adversarial Network，中文全称生成对抗网络，有两个神经网络作为主要部分——生成器（Generator）和判别器（Discriminator）。GAN的基本思想是通过让生成器和判别器相互对抗的方式来学习数据的分布特征。</p>
+<p>对于图片而言（GAN可以用于合成多种类型的数据，不只是图片），生成器负责按照给定的描述来生成图片，而判别器会接受两种图片——真实图片和由生成器生成的图片。判别器会尝试区分这两种图片（无监督，事先不知道图片真假）。生成器和判别器在训练过程中相互竞争、相互改进，最终生成器学会生成逼真的数据，使得判别器难以区分真实数据和生成数据。</p>
+<p>这么做的理由是，由于神经网络，尤其是卷积神经网络前期的不断发展，已经可以有效地对图片进行区分（分类），那么我们用这个已经成熟的神经网络，来为另一个不成熟的神经网络（生成器）计算“损失”，就有可能大大降低依靠人力来区分图片真假的成本，使得构建一个高效的生成网络成为可能。</p>
+<p>GAN 在图像生成、图像转换、风格迁移等任务上取得了很好的效果，并且被广泛应用于计算机视觉和图像处理领域。这种网络结构的创新性在于，它能够学习到数据的<strong>分布</strong>，而不需要显式地定义数据的概率分布函数。</p>
+<p>🍅 应用案例：早期的 WaifuLab 和 Crypko 就是采用 GAN 来生成插画的</p>
+<h2 id="原理推导"><a href="#原理推导" class="headerlink" title="原理推导"></a>原理推导</h2><p>生成对抗网络其实是两个网络的组合：生成网络（Generator）负责生成模拟数据；判别网络Discriminator）负责判断输入的数据是真实的还是生成的。生成网络要不断优化自己生成的数据让判别网络判断不出来，判别网络也要优化自己让自己判断得更准确。二者关系形成对抗，因此叫对抗网络。</p>
+<p> 这是一个生成器和判别器博弈的过程。生成器生成假数据，然后将生成的假数据和真数据都输入判别器，判别器要判断出哪些是真的哪些是假的。判别器第一次判别出来的肯定有很大的误差，然后我们根据误差来优化判别器。现在判别器水平提高了，生成器生成的数据很难再骗过判别器了，所以我们得反过来优化生成器，之后生成器水平提高了，然后反过来继续训练判别器，判别器水平又提高了，再反过来训练生成器，就这样循环往复，直到达到纳什均衡。</p>
+<p><strong>生成网络的损失函数：</strong><br>$$<br>L_{G}&#x3D;H(1,D(G(z)))<br>$$<br>上式中，G 代表生成网络，D 代表判别网络，H 代表交叉熵，z 是输入随机数据。 $$D(G(z))$$ 是对生成数据的判断概率，1 代表数据绝对真实，0 代表数据绝对虚假。 $$H(1,D(G(z)))$$ 代表判断结果与1的距离。显然生成网络想取得良好的效果，那就要做到，让判别器将生成数据判别为真数据（即D(G(z))与1的距离越小越好）。</p>
+<p><strong>判别网络的损失函数：</strong><br>$$<br>L_{D}&#x3D;H(1,D(x))+H(0,D(G(z)))<br>$$<br>上式中，是真实数据，这里要注意的是，代表真实数据与1的距离，代表生成数据与0的距离。显然，判别器要想取得良好的效果，那么就要做到，在它眼里，真实数据就是真实数据，生成数据就是虚假数据（即真实数据与1的距离小，生成数据与0的距离小）。</p>
+<p>生成网络和判别网络有了损失函数，就可以基于各自的损失函数，利用误差反向传播（Backpropagation）算法和最优化方法(如梯度下降法)来实现参数的调整，不断提高生成网络和判别网络的性能。</p>
+<h2 id="GAN-的缺点"><a href="#GAN-的缺点" class="headerlink" title="GAN 的缺点"></a>GAN 的缺点</h2><p>GAN 的弱点也比较明显。如果判别器比较强，无论生成器怎样调整数据分布，判别器都能做出区分，网络就很难训练。</p>
+<blockquote>
+<p>GAN 在业内以不稳定和难训练著称</p>
+</blockquote>
+<h1 id="VAE"><a href="#VAE" class="headerlink" title="VAE"></a>VAE</h1><h2 id="简介-1"><a href="#简介-1" class="headerlink" title="简介"></a>简介</h2><p>Variational Autoencoder，中文全称变分自编码器，是一种生成模型，也是一种无监督学习算法，用于学习数据的潜在表示和生成新的数据样本。与普通的自编码器（Autoencoder）不同，VAE引入了概率分布的概念，使得模型更加灵活。</p>
+<p>VAE的基本思想是，将输入数据映射到一个潜在空间（latent space），并且在这个潜在空间中引入概率分布，通常是多变量高斯分布。VAE的网络结构分为编码器（Encoder）和解码器（Decoder）。编码器将输入数据映射到潜在空间的均值和方差参数，解码器则从潜在空间的采样点重构出数据。</p>
+<p>训练VAE的过程涉及到最大化数据的似然概率，同时最小化潜在表示与先验分布（通常是标准正态分布）之间的KL散度（Kullback-Leibler Divergence），以保持生成的数据具有一定的连续性和规律性。</p>
+<p>VAE的特点之一是，它能够学习数据的潜在结构，并且可以用于生成新的数据样本。与GAN不同，VAE生成的图像通常更加模糊，但它具有更好的潜在空间插值性质，即在潜在空间中，相似的点对应于相似的数据样本。这种特性使得VAE在某些应用中具有优势，例如生成具有连续变化特性的图像。</p>
+<h2 id="从自编码器到-VAE"><a href="#从自编码器到-VAE" class="headerlink" title="从自编码器到 VAE"></a>从自编码器到 VAE</h2><p><em>名字里的 Auto 是“自己”的意思，不要误解为“自动”</em></p>
+<p>🍩<strong>自编码器，无监督的特征学习，目的是利用无标签数据找到一个有效的低维特征提取器。</strong></p>
+<blockquote>
+<p>VAE 的前半部分——自动编码器，在之后整个生成网络的历史中，都发挥着巨大的作用。这是 VAE 的一项杰作。比如之前 HiNet 论文中进行特征融合，就是依靠编码器的部分来提取特征的。</p>
+</blockquote>
+<p>编码器负责把图像转化为中间的表示形式，也就是我们常说的“潜空间”，Latent Space。之后解码器再负责把潜空间的特征，转化为人类可辨识的图片。</p>
+<p><strong>训练好的编码器可以接上一个分离器进行分类任务，需要微调编码器参数。这就是编码器特征提取的作用。</strong></p>
+<p><strong>与之对应的，解码器则可以用于图像生成任务。</strong></p>
+<h3 id="为什么需要-VAE？"><a href="#为什么需要-VAE？" class="headerlink" title="为什么需要 VAE？"></a>为什么需要 VAE？</h3><p>如果只有先前的自编码器，我们无法生成没见过的图像。如果神经网络只见过满月和上弦月，那么中间几天的月相就无法生成。</p>
+<p><img src="https://s2.loli.net/2023/11/12/tXm7QsjWRNLzZ43.png"></p>
+<p>与直接对输入进行简单编码的自动编码器不同，VAE 的编码器在编码时不是仅仅生成特征向量，而是生成一个分布，包括均值（上图的e）和标准差（上图的 σ），此外还有一个高斯噪声（上图的 e）。特征向量的每一个数值都在这些分布中采样得到。</p>
+<p><strong>噪声的方差 σ 是从数据中学到的</strong></p>
+<h3 id="高斯混合模型"><a href="#高斯混合模型" class="headerlink" title="高斯混合模型"></a>高斯混合模型</h3><p>用一系列高斯分布去逼近某个特定分布。</p>
+<h2 id="原理推导-1"><a href="#原理推导-1" class="headerlink" title="原理推导"></a>原理推导</h2><p>原始的样本数据 $$x$$ 的概率分布：<br>$$<br>P(x)&#x3D;∫<br>z<br>​<br> P(x)P(x∣z)dz<br>$$<br>假设 $$ z $$ 服从标准高斯分布，先验分布P ( x ∣ z ) 属于高斯分布，即 $$x ∣ z ∼ N ( μ ( z ) , σ ( z ) ) $$。其中，μ ( z ) 和σ ( z )是两个函数，分别是 $$z$$ 对应的高斯分布的均值和方差。<br>由于P ( z ) P(z)P(z)是已知的P ( x ∣ z ) P(x|z)P(x∣z)未知，所以求解问题实际上就是求μ ( z ) \mu(z)μ(z), σ ( z ) \sigma(z)σ(z)这两个函数。我们最开始的目标是求解P ( x ) P(x)P(x)，且我们希望P ( x ) P(x)P(x) 越大越好，这等价于求解关于x xx 最大对数似然：<br>$$<br> L&#x3D;\sum_xlogP(x)<br>$$<br>logP(x)可变换为：<br>$$<br>l o g P ( x ) &#x3D; ∫ z Q ( z ∣ x ) l o g P ( x ) d z<br>&#x3D; ∫ z Q ( z ∣ x ) l o g P ( z , x ) P ( z ∣ x ) d z &#x3D; ∫ z Q ( z ∣ x ) l o g ( P ( z , x ) Q ( z ∣ x ) Q ( z ∣ x ) P ( z ∣ x ) ) d z &#x3D; ∫ z Q ( z ∣ x ) l o g ( P ( z , x ) Q ( z ∣ x ) ) d z + ∫ z Q ( z ∣ x ) l o g ( Q ( z ∣ x ) P ( z ∣ x ) ) d z &#x3D; ∫ z Q ( z ∣ x ) l o g ( P ( x ∣ z ) P ( z ) Q ( z ∣ x ) ) d z + ∫ z Q ( z ∣ x ) l o g ( Q ( z ∣ x ) P ( z ∣ x ) ) d z &#x3D; ∫ z Q ( z ∣ x ) l o g ( P ( x ∣ z ) P ( z ) Q ( z ∣ x ) ) d z + K L ( Q ( z ∣ x ) ∣ ∣ P ( z ∣ x ) )<br>$$<br>由于KL散度大于 0,可以得到：<br>$$<br>logP(x)⩾∫<br>z<br>​<br> Q(z∣x)log(<br>Q(z∣x)<br>P(x∣z)P(z)<br>​<br> )dz<br>$$<br>可得logP(x)下界:<br>$$<br>L<br>b<br>​<br> &#x3D;∫<br>z<br>​<br> Q(z∣x)log(<br>Q(z∣x)<br>P(x∣z)P(z)<br>​<br> )dz<br>$$<br>原式可以表示为：<br>$$<br>logP(x)&#x3D;L<br>b<br>​<br> +KL(Q(z∣x)∣∣P(z∣x))<br>$$<br><strong>最小化KL散度</strong></p>
+<p>假设P(z)服从标准正太分布，且Q(z∣x)服从高斯分布$$ N(\mu,\sigma^2)$$,于是代入计算可得：</p>
+<p><img src="https://s2.loli.net/2023/11/12/ZNH92oxESJuihYU.png"></p>
+<h1 id="化简结果：-KL-Q-z∣x-∣∣P-z-​-KL-N-μ-σ-2-∣∣N-0-1"><a href="#化简结果：-KL-Q-z∣x-∣∣P-z-​-KL-N-μ-σ-2-∣∣N-0-1" class="headerlink" title="化简结果：$$KL(Q(z∣x)∣∣P(z))​&#x3D;KL(N(μ,σ ^2 )∣∣N(0,1))"></a>化简结果：<br>$$<br>KL(Q(z∣x)∣∣P(z))<br>​<br><br>&#x3D;KL(N(μ,σ ^<br>2<br> )∣∣N(0,1))</h1><p>1&#x2F;2<br>​<br> (−logσ<br>2<br> +μ ^<br>2<br> +σ ^<br>2<br> −1)<br>​</p>
+<p>​<br>$$</p>
+<p>VAE 本质上就是在我们常规的自编码器的基础上，对encoder的结果（在VAE中对应着计算均值的网络）加上了“高斯噪声”，使得结果decoder能够对噪声有鲁棒性；而那个额外的KL loss（目的是让均值为0，方差为1），事实上就是相当于对encoder的一个正则项，希望encoder出来的东西均有零均值。</p>
+<p>另外一个encoder（对应着计算方差的网络）的作用是用来动态调节噪声的强度的。直觉上来想，当decoder还没有训练好时（重构误差远大于KL loss），就会适当降低噪声（KL loss增加），使得拟合起来容易一些（重构误差开始下降）；反之，如果decoder训练得还不错时（重构误差小于KL loss），这时候噪声就会增加（KL loss减少），使得拟合更加困难了（重构误差又开始增加），这时候decoder就要想办法提高它的生成能力了。</p>
+<h2 id="VAE-的进一步发展"><a href="#VAE-的进一步发展" class="headerlink" title="VAE 的进一步发展"></a>VAE 的进一步发展</h2><p>VAE 通过输入和输出图片的相似程度（如 L1 距离）来计算损失，这样的损失更稳定，使得 VAE 的训练要比 GAN 可控许多。</p>
+<p>这样训练出来的网络，就可以实现两个分布的相互转换（原空间和潜空间）。</p>
+<p>🍇 这里的潜空间，是神经网络仅针对图片进行学习得出的，不与文字相挂钩，也是不可控的——人们只能根据重建图像来判断潜空间特征的好坏，却不清楚这究竟是一组什么特征。</p>
+<p>如果需要让其可控，需要额外的网络接入来学习其潜空间表达，从而将文本描述也转化到潜空间，例如 Parti 网络。它使用了一个 transformer 来学习词语到潜空间的转换。在生成时，输入的词会首先被作为潜空间的样本，再通过解码器生成图像。</p>
+<p><a target="_blank" rel="noopener" href="https://sites.research.google/parti/">Parti: Pathways Autoregressive Text-to-Image Model (research.google)</a></p>
+<p>这扩大了 VAE 的适用性，解码器不再是生成潜空间的特定样本，而是生成<strong>可能的样本分布</strong>，样本之后在这个分布中随机挑选出来。</p>
+<p>🍊 应用案例：Dall-E 和 ERNIE-ViLG 都采用了 VAE 相关的模型。</p>
+<p><strong>总结一下，VAE 的思想就是，通过引入“随机性”，每一个样本对应的特征都可能略有不同（服从某个分布），这样就可以使得训练后的特征空间比较平滑，网络就有可能生成一些没有见过，但合理的输出。</strong></p>
+<h1 id="标准化流"><a href="#标准化流" class="headerlink" title="标准化流"></a>标准化流</h1><h1 id="Diffusion-models"><a href="#Diffusion-models" class="headerlink" title="Diffusion models"></a>Diffusion models</h1></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">Peanut🥜</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2023/11/08/%E7%94%9F%E6%88%90%E7%BD%91%E7%BB%9C%E7%AC%94%E8%AE%B0/">http://example.com/2023/11/08/%E7%94%9F%E6%88%90%E7%BD%91%E7%BB%9C%E7%AC%94%E8%AE%B0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Peanut🥜</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/GAN-VAE/">GAN,VAE</a></div><div class="post_share"><div class="social-share" data-image="https://s2.loli.net/2023/09/26/cUzPvnD9ZHbo1QV.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/img/alipay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2023/11/01/%E5%9B%BE%E5%83%8F%E7%BF%BB%E8%AF%91/" title="图像翻译"><img class="cover" src="https://s2.loli.net/2023/09/26/cUzPvnD9ZHbo1QV.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">图像翻译</div></div></a></div></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://s2.loli.net/2023/09/26/l5HJYLxojqCrzGv.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Peanut🥜</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">14</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/peanutbo"><i class="fab fa-github"></i><span>去串个门🛸</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/peanutbo" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:soyorin520@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来看我的博客喵~</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E7%BD%91%E7%BB%9C%E7%AE%80%E5%8F%B2"><span class="toc-number">1.</span> <span class="toc-text">生成网络简史</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#GAN"><span class="toc-number">2.</span> <span class="toc-text">GAN</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-number">2.1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E7%90%86%E6%8E%A8%E5%AF%BC"><span class="toc-number">2.2.</span> <span class="toc-text">原理推导</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GAN-%E7%9A%84%E7%BC%BA%E7%82%B9"><span class="toc-number">2.3.</span> <span class="toc-text">GAN 的缺点</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#VAE"><span class="toc-number">3.</span> <span class="toc-text">VAE</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B-1"><span class="toc-number">3.1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8E%E8%87%AA%E7%BC%96%E7%A0%81%E5%99%A8%E5%88%B0-VAE"><span class="toc-number">3.2.</span> <span class="toc-text">从自编码器到 VAE</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81-VAE%EF%BC%9F"><span class="toc-number">3.2.1.</span> <span class="toc-text">为什么需要 VAE？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AB%98%E6%96%AF%E6%B7%B7%E5%90%88%E6%A8%A1%E5%9E%8B"><span class="toc-number">3.2.2.</span> <span class="toc-text">高斯混合模型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E7%90%86%E6%8E%A8%E5%AF%BC-1"><span class="toc-number">3.3.</span> <span class="toc-text">原理推导</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8C%96%E7%AE%80%E7%BB%93%E6%9E%9C%EF%BC%9A-KL-Q-z%E2%88%A3x-%E2%88%A3%E2%88%A3P-z-%E2%80%8B-KL-N-%CE%BC-%CF%83-2-%E2%88%A3%E2%88%A3N-0-1"><span class="toc-number">4.</span> <span class="toc-text">化简结果：$$KL(Q(z∣x)∣∣P(z))​&#x3D;KL(N(μ,σ ^2 )∣∣N(0,1))</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#VAE-%E7%9A%84%E8%BF%9B%E4%B8%80%E6%AD%A5%E5%8F%91%E5%B1%95"><span class="toc-number">4.1.</span> <span class="toc-text">VAE 的进一步发展</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A0%87%E5%87%86%E5%8C%96%E6%B5%81"><span class="toc-number">5.</span> <span class="toc-text">标准化流</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Diffusion-models"><span class="toc-number">6.</span> <span class="toc-text">Diffusion models</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/11/08/%E7%94%9F%E6%88%90%E7%BD%91%E7%BB%9C%E7%AC%94%E8%AE%B0/" title="生成网络笔记"><img src="https://s2.loli.net/2023/09/26/cUzPvnD9ZHbo1QV.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="生成网络笔记"/></a><div class="content"><a class="title" href="/2023/11/08/%E7%94%9F%E6%88%90%E7%BD%91%E7%BB%9C%E7%AC%94%E8%AE%B0/" title="生成网络笔记">生成网络笔记</a><time datetime="2023-11-08T06:10:05.000Z" title="发表于 2023-11-08 14:10:05">2023-11-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/11/01/%E5%9B%BE%E5%83%8F%E7%BF%BB%E8%AF%91/" title="图像翻译"><img src="https://s2.loli.net/2023/09/26/cUzPvnD9ZHbo1QV.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="图像翻译"/></a><div class="content"><a class="title" href="/2023/11/01/%E5%9B%BE%E5%83%8F%E7%BF%BB%E8%AF%91/" title="图像翻译">图像翻译</a><time datetime="2023-11-01T12:46:20.000Z" title="发表于 2023-11-01 20:46:20">2023-11-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/" title="计算机视觉笔记（一）"><img src="https://s2.loli.net/2023/09/26/DASpsKnHBbWcPuV.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="计算机视觉笔记（一）"/></a><div class="content"><a class="title" href="/2023/10/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/" title="计算机视觉笔记（一）">计算机视觉笔记（一）</a><time datetime="2023-10-28T06:28:15.000Z" title="发表于 2023-10-28 14:28:15">2023-10-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/27/FgSegNet/" title="FgSegNet"><img src="https://s2.loli.net/2023/09/26/FTJlB1I58p7VLqE.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="FgSegNet"/></a><div class="content"><a class="title" href="/2023/10/27/FgSegNet/" title="FgSegNet">FgSegNet</a><time datetime="2023-10-27T02:26:02.000Z" title="发表于 2023-10-27 10:26:02">2023-10-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/23/YOLOv5/" title="YOLOv5"><img src="https://s2.loli.net/2023/09/26/gZs9qlbYpSfjM6B.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="YOLOv5"/></a><div class="content"><a class="title" href="/2023/10/23/YOLOv5/" title="YOLOv5">YOLOv5</a><time datetime="2023-10-23T03:22:49.000Z" title="发表于 2023-10-23 11:22:49">2023-10-23</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Peanut🥜</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>function loadDisqus () {
+  const disqus_config = function () {
+    this.page.url = 'http://example.com/2023/11/08/%E7%94%9F%E6%88%90%E7%BD%91%E7%BB%9C%E7%AC%94%E8%AE%B0/'
+    this.page.identifier = '/2023/11/08/%E7%94%9F%E6%88%90%E7%BD%91%E7%BB%9C%E7%AC%94%E8%AE%B0/'
+    this.page.title = '生成网络笔记'
+  }
+
+  const disqusReset = () => {
+    DISQUS.reset({
+      reload: true,
+      config: disqus_config
+    })
+  }
+
+  btf.addModeChange('disqus', disqusReset)
+
+  if (window.DISQUS) disqusReset()
+  else {
+    (function() { 
+      var d = document, s = d.createElement('script');
+      s.src = 'https://peanutbo.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  }
+}
+
+if ('Disqus' === 'Disqus' || !true) {
+  if (true) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+  else loadDisqus()
+} else {
+  function loadOtherComment () {
+    loadDisqus()
+  }
+}
+</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
