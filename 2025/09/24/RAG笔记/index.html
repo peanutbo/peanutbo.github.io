@@ -1,0 +1,257 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>RAG笔记 | Peanut🥜</title><meta name="author" content="Peanut🥜"><meta name="copyright" content="Peanut🥜"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="g 概览📖 RAG 是什么？Retrieval-Augmented Generation，检索增强生成。顾名思义，用检索到的信息增强大模型生成的内容，可能是增强准确性，也可能为了增强多样性，总之就是在增强这个大模型的回答。 这项技术可以帮你构建一个更专业的“智能客服”，“知识助手”。 ⚙️ 原理 检索 (Retrieval) 在大模型生成答案前，先从外部知识库（例如数据库、文档集合、向量库、甚至">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RAG笔记">
+<meta property="og:url" content="http://example.com/2025/09/24/RAG%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Peanut🥜">
+<meta property="og:description" content="g 概览📖 RAG 是什么？Retrieval-Augmented Generation，检索增强生成。顾名思义，用检索到的信息增强大模型生成的内容，可能是增强准确性，也可能为了增强多样性，总之就是在增强这个大模型的回答。 这项技术可以帮你构建一个更专业的“智能客服”，“知识助手”。 ⚙️ 原理 检索 (Retrieval) 在大模型生成答案前，先从外部知识库（例如数据库、文档集合、向量库、甚至">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2025/09/20/S18iLmIhTXU3DrO.png">
+<meta property="article:published_time" content="2025-09-24T11:33:10.000Z">
+<meta property="article:modified_time" content="2025-09-25T16:48:20.969Z">
+<meta property="article:author" content="Peanut🥜">
+<meta property="article:tag" content="RAG">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2025/09/20/S18iLmIhTXU3DrO.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2025/09/24/RAG%E7%AC%94%E8%AE%B0/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9ac313637a947668318d00f2fa3033bd";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":220},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Peanut🥜","link":"链接: ","source":"来源: Peanut🥜","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'RAG笔记',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-09-26 00:48:20'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css"><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://s2.loli.net/2023/09/26/l5HJYLxojqCrzGv.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">19</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://s2.loli.net/2025/09/20/S18iLmIhTXU3DrO.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Peanut🥜"><span class="site-name">Peanut🥜</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">RAG笔记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-09-24T11:33:10.000Z" title="发表于 2025-09-24 19:33:10">2025-09-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-09-25T16:48:20.969Z" title="更新于 2025-09-26 00:48:20">2025-09-26</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="RAG笔记"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>g</p>
+<h1 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h1><h3 id="📖-RAG-是什么？"><a href="#📖-RAG-是什么？" class="headerlink" title="📖 RAG 是什么？"></a>📖 RAG 是什么？</h3><p>Retrieval-Augmented Generation，检索增强生成。顾名思义，用检索到的信息增强大模型生成的内容，可能是增强准确性，也可能为了增强多样性，总之就是在增强这个大模型的回答。</p>
+<p>这项技术可以帮你构建一个更专业的“智能客服”，“知识助手”。</p>
+<h3 id="⚙️-原理"><a href="#⚙️-原理" class="headerlink" title="⚙️ 原理"></a>⚙️ 原理</h3><ol>
+<li><strong>检索 (Retrieval)</strong><ul>
+<li>在大模型生成答案前，先从外部知识库（例如数据库、文档集合、向量库、甚至互联网）里检索和问题相关的资料。</li>
+</ul>
+</li>
+<li><strong>增强 (Augmented)</strong><ul>
+<li>把这些检索到的资料作为上下文信息，拼接到用户输入里，提供给大模型。</li>
+</ul>
+</li>
+<li><strong>生成 (Generation)</strong><ul>
+<li>大模型再基于用户问题 + 外部资料，生成更准确、知识更新的回答。</li>
+</ul>
+</li>
+</ol>
+<h3 id="🌟-为什么需要-RAG？"><a href="#🌟-为什么需要-RAG？" class="headerlink" title="🌟 为什么需要 RAG？"></a>🌟 为什么需要 RAG？</h3><ul>
+<li><strong>解决 LLM “知识过时” 的问题</strong>：大模型的知识是训练时固化的，RAG 可以实时接入外部数据。</li>
+<li>**减少幻觉 (hallucination)**：模型少“瞎编”，因为它有真实的参考资料。</li>
+<li><strong>灵活可控</strong>：你可以决定接入什么知识库，比如企业文档、论文库、代码库等。</li>
+</ul>
+<h3 id="📌-应用场景"><a href="#📌-应用场景" class="headerlink" title="📌 应用场景"></a>📌 应用场景</h3><ul>
+<li>智能问答系统（比如企业知识库问答、学术论文助手）</li>
+<li>法律&#x2F;医疗等对准确性要求高的领域</li>
+<li>搜索增强型聊天机器人</li>
+<li>文档总结、代码助手</li>
+</ul>
+<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><h3 id="🍗你要给公司做一个智能客服，这样你的客服朋友就会被优化了"><a href="#🍗你要给公司做一个智能客服，这样你的客服朋友就会被优化了" class="headerlink" title="🍗你要给公司做一个智能客服，这样你的客服朋友就会被优化了"></a>🍗你要给公司做一个智能客服，这样你的客服朋友就会被优化了</h3><p>需要一个大模型，但是这个大模型不可能了解你家产品，更不可能知道你家产品和其他众多产品的具体差异。</p>
+<p><strong>或许可以把公司的各种文档和用户的问题一起交给大模型？</strong></p>
+<p>可以的，但是你的文档或许会太长（甚至超过了模型上下文窗口大小，模型会边读边忘），模型找不到准确位置，也难以理解和总结。模型推理成本很高，模型推理很慢。</p>
+<h1 id="RAG的思路"><a href="#RAG的思路" class="headerlink" title="RAG的思路"></a>RAG的思路</h1><h3 id="🍪如果只把相关的部分文档片段发给模型就好了"><a href="#🍪如果只把相关的部分文档片段发给模型就好了" class="headerlink" title="🍪如果只把相关的部分文档片段发给模型就好了"></a>🍪<strong>如果只把相关的部分文档片段发给模型就好了</strong></h3><p>RAG 首先将文档切分成片段，根据用户的问题定位具体片段，将片段和问题一起发给大模型。</p>
+<h1 id="基本流程"><a href="#基本流程" class="headerlink" title="基本流程"></a>基本流程</h1><ol>
+<li>在上线之前，准备好文档，完成分片和索引</li>
+<li>用户提问后，完成召回，重排和生成</li>
+</ol>
+<h2 id="分片"><a href="#分片" class="headerlink" title="分片"></a>分片</h2><p>分片的方法很多，可以简单的几千字一段，也可以按照章节段落等。</p>
+<h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><p>🍡通过 Embedding 将片段转化为向量，然后将向量和片段文本存入数据库。向量可以作为查找到索引（一般几百几千维）</p>
+<p>嵌入模型推荐<br><img src="https://cdn.statically.io/gh/peanutbo/Peanut-Bed@main/2025/image-20250926002244997.png" alt="image-20250926002244997"></p>
+<p>各个片段的嵌入向量会存入向量数据库（原始文本也存），得到嵌入向量并存好的过程就叫索引。</p>
+<h2 id="召回"><a href="#召回" class="headerlink" title="召回"></a>召回</h2><p>用户提问后，将问题进行嵌入，嵌入后发送到向量数据库，找到若干个（看你想要多少个）相似的嵌入向量，将对应文本片段返回。求相似度一般使用余弦相似度，欧氏距离或者点积。</p>
+<h2 id="重排"><a href="#重排" class="headerlink" title="重排"></a>重排</h2><p>从召回的片段里选一些和问题最相似。看起来和召回阶段重复，其实两者求相似度的方法不同。</p>
+<p>召回阶段，只是为了快速找到合适的片段，准确率低。</p>
+<p>重排阶段，使用名为 cross-encoder 的模型计算问题与片段的相似度。准确率高，但更慢。</p>
+<h2 id="生成"><a href="#生成" class="headerlink" title="生成"></a>生成</h2><p>将筛选到的片段和问题一起发给模型。</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p>BV1JLN2z4EZQ</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">Peanut🥜</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2025/09/24/RAG%E7%AC%94%E8%AE%B0/">http://example.com/2025/09/24/RAG%E7%AC%94%E8%AE%B0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Peanut🥜</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/RAG/">RAG</a></div><div class="post_share"><div class="social-share" data-image="https://s2.loli.net/2025/09/20/S18iLmIhTXU3DrO.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/img/alipay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2025/09/14/VOICEVOX/" title="VOICEVOX"><img class="cover" src="https://s2.loli.net/2025/09/20/RyhBuq6g7siYHTL.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">VOICEVOX</div></div></a></div></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://s2.loli.net/2023/09/26/l5HJYLxojqCrzGv.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Peanut🥜</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">19</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/peanutbo"><i class="fab fa-github"></i><span>去串个门🛸</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/peanutbo" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:soyorin520@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来看我的博客喵~</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A6%82%E8%A7%88"><span class="toc-number">1.</span> <span class="toc-text">概览</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%93%96-RAG-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">1.0.1.</span> <span class="toc-text">📖 RAG 是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9A%99%EF%B8%8F-%E5%8E%9F%E7%90%86"><span class="toc-number">1.0.2.</span> <span class="toc-text">⚙️ 原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%8C%9F-%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81-RAG%EF%BC%9F"><span class="toc-number">1.0.3.</span> <span class="toc-text">🌟 为什么需要 RAG？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%93%8C-%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">1.0.4.</span> <span class="toc-text">📌 应用场景</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-number">2.</span> <span class="toc-text">问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%8D%97%E4%BD%A0%E8%A6%81%E7%BB%99%E5%85%AC%E5%8F%B8%E5%81%9A%E4%B8%80%E4%B8%AA%E6%99%BA%E8%83%BD%E5%AE%A2%E6%9C%8D%EF%BC%8C%E8%BF%99%E6%A0%B7%E4%BD%A0%E7%9A%84%E5%AE%A2%E6%9C%8D%E6%9C%8B%E5%8F%8B%E5%B0%B1%E4%BC%9A%E8%A2%AB%E4%BC%98%E5%8C%96%E4%BA%86"><span class="toc-number">2.0.1.</span> <span class="toc-text">🍗你要给公司做一个智能客服，这样你的客服朋友就会被优化了</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#RAG%E7%9A%84%E6%80%9D%E8%B7%AF"><span class="toc-number">3.</span> <span class="toc-text">RAG的思路</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%8D%AA%E5%A6%82%E6%9E%9C%E5%8F%AA%E6%8A%8A%E7%9B%B8%E5%85%B3%E7%9A%84%E9%83%A8%E5%88%86%E6%96%87%E6%A1%A3%E7%89%87%E6%AE%B5%E5%8F%91%E7%BB%99%E6%A8%A1%E5%9E%8B%E5%B0%B1%E5%A5%BD%E4%BA%86"><span class="toc-number">3.0.1.</span> <span class="toc-text">🍪如果只把相关的部分文档片段发给模型就好了</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%B5%81%E7%A8%8B"><span class="toc-number">4.</span> <span class="toc-text">基本流程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E7%89%87"><span class="toc-number">4.1.</span> <span class="toc-text">分片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95"><span class="toc-number">4.2.</span> <span class="toc-text">索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AC%E5%9B%9E"><span class="toc-number">4.3.</span> <span class="toc-text">召回</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%8D%E6%8E%92"><span class="toc-number">4.4.</span> <span class="toc-text">重排</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E6%88%90"><span class="toc-number">4.5.</span> <span class="toc-text">生成</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">5.</span> <span class="toc-text">参考资料</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/09/24/RAG%E7%AC%94%E8%AE%B0/" title="RAG笔记"><img src="https://s2.loli.net/2025/09/20/S18iLmIhTXU3DrO.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="RAG笔记"/></a><div class="content"><a class="title" href="/2025/09/24/RAG%E7%AC%94%E8%AE%B0/" title="RAG笔记">RAG笔记</a><time datetime="2025-09-24T11:33:10.000Z" title="发表于 2025-09-24 19:33:10">2025-09-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/09/14/VOICEVOX/" title="VOICEVOX"><img src="https://s2.loli.net/2025/09/20/RyhBuq6g7siYHTL.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="VOICEVOX"/></a><div class="content"><a class="title" href="/2025/09/14/VOICEVOX/" title="VOICEVOX">VOICEVOX</a><time datetime="2025-09-14T13:28:51.000Z" title="发表于 2025-09-14 21:28:51">2025-09-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/05/03/SoVITS%E8%87%AA%E5%AD%A6/" title="SoVITS自学"><img src="https://s2.loli.net/2025/09/20/UwMarKoO4Rd8kHg.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="SoVITS自学"/></a><div class="content"><a class="title" href="/2025/05/03/SoVITS%E8%87%AA%E5%AD%A6/" title="SoVITS自学">SoVITS自学</a><time datetime="2025-05-02T16:37:16.000Z" title="发表于 2025-05-03 00:37:16">2025-05-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/02/09/%E5%8F%AF%E8%A7%A3%E9%87%8A%E6%80%A7%E5%88%86%E6%9E%90/" title="可解释性分析"><img src="https://s2.loli.net/2023/09/26/lbAqyBhoEFJD9wS.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="可解释性分析"/></a><div class="content"><a class="title" href="/2024/02/09/%E5%8F%AF%E8%A7%A3%E9%87%8A%E6%80%A7%E5%88%86%E6%9E%90/" title="可解释性分析">可解释性分析</a><time datetime="2024-02-09T08:06:03.000Z" title="发表于 2024-02-09 16:06:03">2024-02-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/01/27/%E5%9F%BA%E4%BA%8E%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6%E7%9A%84%E6%97%A0%E7%9B%91%E7%9D%A3%E5%9F%9F%E8%87%AA%E9%80%82%E5%BA%94%E9%97%AE%E9%A2%98%E7%A0%94%E7%A9%B6%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/" title="基于注意力机制的无监督域自适应问题研究论文笔记"><img src="https://s2.loli.net/2025/09/20/AbjNSYfIXnKwEcB.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="基于注意力机制的无监督域自适应问题研究论文笔记"/></a><div class="content"><a class="title" href="/2024/01/27/%E5%9F%BA%E4%BA%8E%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6%E7%9A%84%E6%97%A0%E7%9B%91%E7%9D%A3%E5%9F%9F%E8%87%AA%E9%80%82%E5%BA%94%E9%97%AE%E9%A2%98%E7%A0%94%E7%A9%B6%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/" title="基于注意力机制的无监督域自适应问题研究论文笔记">基于注意力机制的无监督域自适应问题研究论文笔记</a><time datetime="2024-01-27T01:21:25.000Z" title="发表于 2024-01-27 09:21:25">2024-01-27</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Peanut🥜</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>function loadDisqus () {
+  const disqus_config = function () {
+    this.page.url = 'http://example.com/2025/09/24/RAG%E7%AC%94%E8%AE%B0/'
+    this.page.identifier = '/2025/09/24/RAG%E7%AC%94%E8%AE%B0/'
+    this.page.title = 'RAG笔记'
+  }
+
+  const disqusReset = () => {
+    DISQUS.reset({
+      reload: true,
+      config: disqus_config
+    })
+  }
+
+  btf.addModeChange('disqus', disqusReset)
+
+  if (window.DISQUS) disqusReset()
+  else {
+    (function() { 
+      var d = document, s = d.createElement('script');
+      s.src = 'https://peanutbo.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  }
+}
+
+if ('Disqus' === 'Disqus' || !true) {
+  if (true) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+  else loadDisqus()
+} else {
+  function loadOtherComment () {
+    loadDisqus()
+  }
+}
+</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
